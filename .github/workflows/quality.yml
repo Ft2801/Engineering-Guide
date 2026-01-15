@@ -1,0 +1,30 @@
+name: Quality Assurance
+
+on:
+  push:
+    branches: [ "main", "master" ]
+  pull_request:
+    branches: [ "main", "master" ]
+
+jobs:
+  link-checker:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Link Checker (Lychee)
+        uses: lycheevers/lychee-action@v1.8.0
+        with:
+          # Check all markdown files, fail on broken links.
+          # Exclude linkedin because it triggers 999 blocks often.
+          args: --verbose --no-progress '*.md' '**/*.md' --exclude 'linkedin.com'
+
+  markdown-lint:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      
+      - name: Markdown Lint
+        uses: davidanson/markdownlint-cli2-action@v1
+        with:
+          globs: "**/*.md"
