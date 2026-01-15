@@ -13,9 +13,9 @@ We enforce automated security gates at four distinct stages.
 
 ```mermaid
 graph LR
-    A[Code (IDE)] --> B[Commit (Git)]
-    B --> C[Build (CI)]
-    C --> D[Deploy (CD)]
+    A["Code (IDE)"] --> B["Commit (Git)"]
+    B --> C["Build (CI)"]
+    C --> D["Deploy (CD)"]
     
     subgraph "Phase 1: SAST"
     A -- Linting --> A
