@@ -17,21 +17,26 @@ The methodologies are derived from **High-Reliability Organizations (HROs)**, **
 
 All technology adoption initiatives must follow this linear state machine to mitigate cognitive bias.
 
-```
-graph TD
-    A[Start: Identification of Need] --> B{Is there a Standard?}
-    B -- Yes --> C[Use Standardized Technology]
-    B -- No --> D[Draft RFC]
-    D --> E[Initial Review]
-    E -- Rejected --> F[Terminate]
-    E -- Approved for Study --> G[Decision Matrix Analysis]
-    G --> H{Score > Threshold?}
+```mermaid
+    graph TD
+    A["Start: Identification of Need"] --> B{"Is there a Standard?"}
+    
+    B -- Yes --> C["Use Standardized Technology"]
+    B -- No --> D["Draft RFC"]
+    
+    D --> E["Initial Review"]
+    E -- Rejected --> F["Terminate"]
+    E -- Approved for Study --> G["Decision Matrix Analysis"]
+    
+    G --> H{"Score > Threshold?"}
     H -- No --> F
-    H -- Yes --> I[Proof of Concept (PoC)]
-    I --> J[Pilot Implementation]
-    J --> K[Standardization]
+    H -- Yes --> I["Proof of Concept (PoC)"]
+    
+    I --> J["Pilot Implementation"]
+    J --> K["Standardization"]
     K --> C
-    C --> L[End: Implementation]
+    
+    C --> L["End: Implementation"]
 ```
 
 *   **[Step 1: RFC Phase](./templates/technology-rfc.md)** - Define the problem space and constraints.
