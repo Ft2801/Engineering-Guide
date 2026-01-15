@@ -17,7 +17,7 @@ The methodologies are derived from **High-Reliability Organizations (HROs)**, **
 
 All technology adoption initiatives must follow this linear state machine to mitigate cognitive bias.
 
-```mermaid
+```
 graph TD
     A[Start: Identification of Need] --> B{Is there a Standard?}
     B -- Yes --> C[Use Standardized Technology]
